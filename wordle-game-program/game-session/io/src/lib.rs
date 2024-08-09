@@ -93,9 +93,9 @@ impl From<GameSessionState> for State {
         } = state;
 
         let user_sessions = user_to_session
-            。iter()
-            。map(|(user, session)| (*user, session.clone()))
-            。collect();
+            .iter()
+            .map(|(user, session)| (*user, session.clone()))
+            .collect();
 
         Self {
             wordle_program,
