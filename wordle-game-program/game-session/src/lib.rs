@@ -22,8 +22,8 @@ extern "C" fn init() {
 fn handle_start_game() {
     let state = unsafe {
         GAME_SESSION_STATE
-            。as_mut()
-            。expect("GAME_SESSION_STATE is not initialized")
+            .as_mut()
+            .expect("GAME_SESSION_STATE is not initialized")
     };
     let user = msg::source();
 
