@@ -1,8 +1,8 @@
 #![no_std]
 
-use gmeta::{InOut, Out, Metadata};
-use gstd::{prelude::*, ActorId, MessageId, collections::HashMap};
-use wordle_io::{Event};
+use gmeta::{InOut, Metadata, Out};
+use gstd::{collections::HashMap, prelude::*, ActorId, MessageId};
+use wordle_io::Event;
 
 pub struct GameSessionMetadata;
 
@@ -31,7 +31,7 @@ pub enum SessionEvent {
         contained_in_word: Vec<u8>,
     },
     GameOver {
-        result: SessionResult
+        result: SessionResult,
     },
 }
 
@@ -86,7 +86,7 @@ pub struct State {
 }
 
 impl From<GameSessionState> for State {
-    fn from (state: GameSessionState) -> Self {
+    fn from(state: GameSessionState) -> Self {
         let GameSessionState {
             wordle_program,
             user_to_session,
