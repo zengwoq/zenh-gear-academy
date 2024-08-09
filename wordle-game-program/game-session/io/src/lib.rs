@@ -86,16 +86,16 @@ pub struct State {
 }
 
 impl From<GameSessionState> for State {
-    fn from(state: GameSessionState) -> Self {
+    fn from(state: &GameSessionState) -> Self {
         let GameSessionState {
             wordle_program,
             user_to_session,
         } = state;
 
         let user_sessions = user_to_session
-            .iter()
-            .map(|(user, session)| (*user, session.clone()))
-            .collect();
+            。iter()
+            。map(|(user, session)| (*user, session.clone()))
+            。collect();
 
         Self {
             wordle_program,
