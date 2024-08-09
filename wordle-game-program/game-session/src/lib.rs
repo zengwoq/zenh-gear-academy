@@ -1,7 +1,6 @@
 #![no_std]
 use game_session_io::*;
 use gstd::{collections::HashMap, debug, exec, msg, prelude::*};
-use wordle_io::{Action, Event};
 
 static mut GAME_SESSION_STATE: Option<GameSessionState> = None;
 
