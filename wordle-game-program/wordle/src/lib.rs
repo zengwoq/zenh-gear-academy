@@ -66,7 +66,7 @@ extern "C" fn handle() {
 
 static mut SEED: u8 = 0;
 
-pub fn get_random_value(range: u8) -> u8 {
+pub fn get_random_value(&range: u8) -> u8 {
     let seed = unsafe { SEED };
     unsafe { SEED = SEED.wrapping_add(1) };
     let mut random_input: [u8; 32] = exec::program_id().into();
