@@ -1,6 +1,7 @@
 #![no_std]
 use game_session_io::*;
-use gstd::{collections::HashMap, debug, exec, msg, prelude::*};
+use gstd::{collections::HashMap, debug, exec, msg, prelude::*, ActorId};
+use wordle_io::{Action, Event};
 
 static mut GAME_SESSION_STATE: Option<GameSessionState> = None;
 
@@ -220,7 +221,7 @@ extern "C" fn handle() {
         // 检查单词
         SessionAction::CheckWord { word } => handle_check_word(word.to_string()),
         // 检查游戏状态
-        SessionAction::CheckGameStatus { user } => handle_check_game_status(user),
+        SessionAction::CheckGameStatus { user } => handle_check_game_status(&user),
     }
 }
 
